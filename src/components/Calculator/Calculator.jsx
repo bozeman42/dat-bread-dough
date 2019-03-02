@@ -19,7 +19,7 @@ class Calculator extends Component {
     return e => {
       this.setState({
         ...this.state,
-        [field]: parseInt(e.target.value)
+        [field]: parseFloat(e.target.value)
       })
     }
   }
@@ -27,16 +27,20 @@ class Calculator extends Component {
   calculateWaterTemperature () {
     const { airTemperature, flourTemperature, desiredDoughTemperature } = this.state
     const desiredTempFactor = 3 * desiredDoughTemperature
-    return desiredTempFactor - KNEEDING_FACTOR - airTemperature - flourTemperature
+    return Math.round((desiredTempFactor - KNEEDING_FACTOR - airTemperature - flourTemperature) * 10000) / 10000
   }
 
   render() {
-    const { state: { flourTemperature, airTemperature }, handleInput, calculateWaterTemperature } = this
+    const { state: { flourTemperature, airTemperature, desiredDoughTemperature }, handleInput, calculateWaterTemperature } = this
     return (
       <div>
         <div>
+          <label htmlFor='desired-dough-temperature'>Desired Dough Temperature &deg;F</label>
+          <input type='number' id='desired-dough-temperature' onInput={handleInput('desiredDoughTemperature')} value={desiredDoughTemperature} />
+        </div>
+        <div>
           <label htmlFor='flour-temperature'>Flour Temperature &deg;F</label>
-          <input type='number' id='flour-temperature' onInput={handleInput('flourTemperature')} value={flourTemperature} placeholder='Stuff!' />
+          <input type='number' id='flour-temperature' onInput={handleInput('flourTemperature')} value={flourTemperature} />
         </div>
         <div>
           <label htmlFor='air-temperature'>Air Temperature &deg;F</label>
