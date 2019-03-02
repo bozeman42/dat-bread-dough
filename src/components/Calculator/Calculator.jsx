@@ -42,7 +42,8 @@ class Calculator extends Component {
           <label htmlFor='air-temperature'>Air Temperature &deg;F</label>
           <input type='number' id='air-temperature' onInput={handleInput('airTemperature')} value={airTemperature} />
         </div>
-        <h2>{calculateWaterTemperature()}</h2>
+        <p>Water temperature:</p>
+        <h2>{calculateWaterTemperature()}&deg;F</h2>
       </div>
     )
   }
