@@ -12,7 +12,7 @@ class App extends Component {
         <p>
           This calculator is used to find the appropriate water temperature for
           your dough based upon the calculation provided in
-          Bonnie Ohara's <em>Bread Baking for Beginners</em>.
+          Bonnie Ohara&apos;s <em>Bread Baking for Beginners</em>.
         </p>
         </div>
         <div>
