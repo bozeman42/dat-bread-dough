@@ -2,8 +2,8 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.dbd-header {
+  background-color: #532e10;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
